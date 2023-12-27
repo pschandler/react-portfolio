@@ -128,3 +128,5 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+.vs/VSWorkspaceState.json
+.vs/react-portfolio/v17/.wsuo
