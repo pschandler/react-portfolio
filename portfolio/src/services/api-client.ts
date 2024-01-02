@@ -8,8 +8,8 @@ import axios from "axios";
 // });
 
 export default axios.create({
-  baseURL: "https://api.rawg.io/api/",
+  baseURL: "https://api.rawg.io/api",
   params: {
-    key: "a7fbded39045470ea679403d134cc0d0",
+    key: "83cfa136c49640d1865f3b761f393d7b",
   },
 });

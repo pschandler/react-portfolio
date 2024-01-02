@@ -1,34 +1,25 @@
-import { useEffect, useState } from "react";
-import apiClient from "../../services/api-client";
+import useGalleries from "../../hooks/useGalleries";
+import { GalleryQuery } from "../pages/gallery/galllery-grid-layout";
 import GalleryGridItem from "./gallery-grid-item";
 import { Row } from "react-bootstrap";
 
-interface Gallery {
-  id: string;
-  name: string;
+interface Props {
+  galleryQuery: GalleryQuery;
 }
 
-interface FetchGalleryResponse {
-  count: number;
-  results: Gallery[];
-}
-
-const GalleryGrid = () => {
-  const [galleries, setGalleries] = useState<Gallery[]>([]);
-  const [error, setError] = useState("");
-  useEffect(() => {
-    apiClient
-      .get<FetchGalleryResponse>("/games")
-      .then((res) => setGalleries(res.data.results))
-      .catch((err) => setError(err.message));
-  }, []);
+const GalleryGrid = ({ galleryQuery }: Props) => {
+  const { data, error, isLoading } = useGalleries();
 
   return (
     <>
       {error && <div>{error}</div>}
       <Row xs={1} md={2} lg={3} className="g-4 align-items-middle">
-        {galleries.map((gallery) => (
-          <GalleryGridItem idx={gallery.id} name={gallery.name} />
+        {data.map((result: any) => (
+          <GalleryGridItem
+            key={result.id}
+            name={result.name}
+            thumbnail={result.background_image}
+          />
         ))}
       </Row>
     </>

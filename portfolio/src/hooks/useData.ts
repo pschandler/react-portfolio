@@ -19,13 +19,10 @@ const useData = <T>(
   useEffect(
     () => {
       const controller = new AbortController();
-
       setLoading(true);
+
       apiClient
-        .get<FetchResponse<T>>(endpoint, {
-          signal: controller.signal,
-          ...requestConfig,
-        })
+        .get<FetchResponse<T>>(endpoint)
         .then((res) => {
           setData(res.data.results);
           setLoading(false);
@@ -35,12 +32,12 @@ const useData = <T>(
           setError(err.message);
           setLoading(false);
         });
-
-      return () => controller.abort();
+      return controller.abort();
     },
     deps ? [...deps] : []
   );
-
+  console.log("endpoint", endpoint);
+  console.log("data", data);
   return { data, error, isLoading };
 };
 

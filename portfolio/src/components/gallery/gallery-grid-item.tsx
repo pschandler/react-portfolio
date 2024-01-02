@@ -2,18 +2,15 @@ import React from "react";
 import { Card, Button, Col } from "react-bootstrap";
 
 interface Props {
-  idx: string;
   name: string;
+  thumbnail: string;
 }
 
-const GalleryGridItem = ({ idx, name }: Props) => {
+const GalleryGridItem = ({ name, thumbnail }: Props) => {
   return (
-    <Col key={idx}>
+    <Col>
       <Card className="m-5" style={{ width: "18rem" }}>
-        <Card.Img
-          variant="top"
-          src="http://www.punchcodestudios.com/images/gallery.png"
-        />
+        <Card.Img variant="top" src={thumbnail} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>
