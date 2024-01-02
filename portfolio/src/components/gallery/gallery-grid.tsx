@@ -18,7 +18,7 @@ const GalleryGrid = () => {
   const [error, setError] = useState("");
   useEffect(() => {
     apiClient
-      .get<FetchGalleryResponse>("/gamdfgs")
+      .get<FetchGalleryResponse>("/games")
       .then((res) => setGalleries(res.data.results))
       .catch((err) => setError(err.message));
   }, []);
