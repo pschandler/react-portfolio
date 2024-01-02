@@ -22,7 +22,10 @@ const useData = <T>(
       setLoading(true);
 
       apiClient
-        .get<FetchResponse<T>>(endpoint)
+        .get<FetchResponse<T>>(endpoint, {
+          signal: controller.signal,
+          ...requestConfig,
+        })
         .then((res) => {
           setData(res.data.results);
           setLoading(false);
@@ -31,8 +34,8 @@ const useData = <T>(
           if (err instanceof CanceledError) return;
           setError(err.message);
           setLoading(false);
+          return controller.abort();
         });
-      return controller.abort();
     },
     deps ? [...deps] : []
   );

@@ -5,7 +5,7 @@ const GalleryItemSkeleton = () => {
   return (
     <Col>
       <Card
-        className="m-5"
+        className="m-4 ms-5"
         style={{
           width: "18rem",
           height: "450px",
