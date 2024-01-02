@@ -7,6 +7,7 @@ import ResumeEducation from "../pages/resume-education/resume-education.componen
 import ResumeExperience from "../pages/resume-experience/resume-experience.component";
 import ResumeSkills from "../pages/resume-skills/resume-skills.component";
 import HomePage from "../pages/home-page.component";
+import GalleryGridLayout from "../pages/gallery/galllery-grid-layout";
 
 function routes() {
   return [
@@ -32,6 +33,14 @@ function routes() {
             {
               path: "resume-experience",
               element: <ResumeExperience></ResumeExperience>,
+            },
+            {
+              path: "/about",
+              element: <HomePage></HomePage>,
+            },
+            {
+              path: "/galleries",
+              element: <GalleryGridLayout></GalleryGridLayout>,
             },
           ],
         },

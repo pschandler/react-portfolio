@@ -52,7 +52,7 @@ function MainNavComponent() {
               </Nav.Link>
             </NavItem>
             <NavItem>
-              <Nav.Link as={Link} to="/home">
+              <Nav.Link as={Link} to="/galleries">
                 Galleries
               </Nav.Link>
             </NavItem>
