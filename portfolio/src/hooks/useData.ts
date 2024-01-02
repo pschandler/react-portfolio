@@ -36,8 +36,6 @@ const useData = <T>(
     },
     deps ? [...deps] : []
   );
-  console.log("endpoint", endpoint);
-  console.log("data", data);
   return { data, error, isLoading };
 };
 

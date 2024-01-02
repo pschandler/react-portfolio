@@ -4,9 +4,10 @@ import { Card, Button, Col } from "react-bootstrap";
 interface Props {
   name: string;
   thumbnail: string;
+  description: string;
 }
 
-const GalleryGridItem = ({ name, thumbnail }: Props) => {
+const GalleryGridItem = ({ name, thumbnail, description }: Props) => {
   return (
     <Col>
       <Card className="m-5" style={{ width: "18rem" }}>
@@ -14,6 +15,7 @@ const GalleryGridItem = ({ name, thumbnail }: Props) => {
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>
+            {description}
             Description : Some quick example text to build on the card title and
             make up the bulk of the card's content.
           </Card.Text>

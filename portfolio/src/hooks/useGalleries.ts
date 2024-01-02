@@ -5,9 +5,10 @@ export interface Gallery {
   id: string;
   name: string;
   background_image: string;
+  description: string;
 }
 
-const useGalleries = () => useData<Gallery>("/games");
+const useGalleries = (galleryQuery: GalleryQuery) =>
+  useData<Gallery>("/games", {}, [galleryQuery]);
 
-console.log("USE GALLERIES");
 export default useGalleries;
